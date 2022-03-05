@@ -1,55 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
+@font-face {
+  font-family: "Avenir";
+  src: url("./src/avenir-font/avenirbook.ttf") format("truetype");
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: var(--font-color);
 }
 
 :root {
   --bg-color: #f0f0f0;
-  --main-color: #987eff;
-  --main-color-dark: #604cb3;
-  --font-color: #707070;
+  --main-color: #5800e6;
+  --main-color-dark: #3f00a5;
+  --gradient-color: linear-gradient(
+    180deg,
+    var(--main-color),
+    var(--main-color-dark)
+  );
+  --font-color: #464646;
 }
 
 body {
-  font-family: "Oswald", sans-serif;
+  font-family: "Avenir", sans-serif;
   background-color: var(--bg-color);
-  color: var(--font-color);
 }
 
 /* Header */
 
 header {
   position: relative;
-  background: linear-gradient(
-    180deg,
-    var(--main-color),
-    var(--main-color-dark)
-  );
+  background: var(--gradient-color);
   padding: 60px;
-}
-
-header::after,
-header::before {
-  content: "";
-  position: absolute;
-  height: 0;
-  width: 20%;
-  bottom: -20px;
-}
-
-header::after {
-  left: 0;
-  border-top: 20px solid var(--main-color-dark);
-  border-right: 110px solid transparent;
-}
-
-header::before {
-  right: 0;
-  border-top: 20px solid var(--main-color-dark);
-  border-left: 110px solid transparent;
+  border-radius: 0 0 20% 20%;
+  filter: drop-shadow(0px 0px 5px #1d1d1d);
 }
 
 header h1 {
@@ -58,4 +43,119 @@ header h1 {
   font-weight: 300;
   letter-spacing: 2px;
   font-size: 2.5rem;
+}
+
+/* Main */
+
+main {
+  margin: 35px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-container h3 {
+  font-size: 1.2rem;
+  margin-bottom: 7px;
+}
+
+input[type="number"] {
+  font-size: 1rem;
+  padding-bottom: 5px;
+  text-align: center;
+  outline: none;
+  background: none;
+  border: 3px solid #7a7a7a7e;
+  border-left: none;
+  border-right: none;
+}
+
+#gender-container,
+.ipt-number-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Plus and minuns button */
+
+.btn-ipt-plus,
+.btn-ipt-minus {
+  padding: 5px 12px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+  color: #0057fa;
+  border: 3px solid #7a7a7a7e;
+}
+
+.btn-ipt-plus {
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+.btn-ipt-minus {
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Gender*/
+
+.avatar-container {
+  display: inline-block;
+  position: relative;
+}
+
+.gender-select {
+  display: grid;
+  justify-items: center;
+  width: 80px;
+  padding: 8px 10px;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 15px;
+  transition: 0.35s ease;
+}
+
+.gender-select.active {
+  background-color: var(--main-color);
+  color: #f0f0f0;
+}
+
+.gender-select img {
+  width: 50px;
+  filter: brightness(100);
+  margin-bottom: 5px;
+}
+
+.avatar-container input[type="radio"] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Button */
+
+#bmi-form button {
+  width: 100%;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  letter-spacing: 1.2px;
+  border: 2px solid var(--main-color-dark);
+  cursor: pointer;
+  transition: 0.35s ease-out;
+}
+
+#bmi-form button:hover {
+  background: var(--gradient-color);
+  color: #f0f0f0;
 }

@@ -11,6 +11,84 @@
     <header>
       <h1>BMI Calculator</h1>
     </header>
-    <main></main>
+    <main>
+      <!-- BMI Form-->
+      <section id="bmi-form">
+        <!-- Gender -->
+        <div class="input-container">
+          <h3>Gender</h3>
+          <div id="gender-container">
+            <div class="avatar-container">
+              <div class="gender-select">
+                <img src="./src/male-icon.svg" alt="male-icon" />
+                <p>Male</p>
+              </div>
+              <input type="radio" name="gender" id="male-radio" />
+            </div>
+            <div class="avatar-container">
+              <div class="gender-select">
+                <img src="./src/female-icon.svg" alt="female-icon" />
+                <p>Female</p>
+              </div>
+              <input type="radio" name="gender" id="female-radio" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Age -->
+        <div class="input-container">
+          <h3>Age</h3>
+          <div class="ipt-number-container">
+            <input type="button" value="-" class="btn-ipt-minus" />
+            <input
+              type="number"
+              name="age-input"
+              id="age-input"
+              min="1"
+              placeholder="1"
+            />
+            <input type="button" value="+" class="btn-ipt-plus" />
+          </div>
+        </div>
+
+        <!-- Height -->
+        <div class="input-container">
+          <h3>Height <small>(in cm)</small></h3>
+          <div class="ipt-number-container">
+            <input type="button" value="-" class="btn-ipt-minus" />
+            <input
+              type="number"
+              name="height-input"
+              id="height-input"
+              min="1"
+              placeholder="1"
+            />
+            <input type="button" value="+" class="btn-ipt-plus" />
+          </div>
+        </div>
+
+        <!-- Weight-->
+        <div class="input-container">
+          <h3>Weight <small>(in kg)</small></h3>
+          <div class="ipt-number-container">
+            <input type="button" value="-" class="btn-ipt-minus" /><input
+              type="number"
+              name="weight-input"
+              id="weight-input"
+              min="1"
+              placeholder="1"
+            />
+            <input type="button" value="+" class="btn-ipt-plus" />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <button>Calculate BMI</button>
+      </section>
+
+      <!-- BMI Result-->
+      <section id="bmi-result"></section>
+    </main>
   </body>
+  <script src="./app.js"></script>
 </html>
