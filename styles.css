@@ -107,6 +107,21 @@ input[type="number"] {
 .avatar-container {
   display: inline-block;
   position: relative;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 15px;
+  transition: 0.35s ease;
+}
+
+.avatar-container.active {
+  background-color: var(--main-color);
+}
+
+.avatar-container.active p {
+  color: #f0f0f0;
+}
+
+.avatar-container.active svg {
+  fill: #f0f0f0;
 }
 
 .gender-select {
@@ -114,19 +129,9 @@ input[type="number"] {
   justify-items: center;
   width: 80px;
   padding: 8px 10px;
-  box-shadow: 0px 0px 5px black;
-  border-radius: 15px;
-  transition: 0.35s ease;
 }
 
-.gender-select.active {
-  background-color: var(--main-color);
-  color: #f0f0f0;
-}
-
-.gender-select img {
-  width: 50px;
-  filter: brightness(100);
+.gender-select svg {
   margin-bottom: 5px;
 }
 
