@@ -1,47 +1,84 @@
-const gender = document.getElementsByName("gender");
+// Gender Selection Effect
 
-const gender_array = Array.from(gender);
+const genderArray = Array.from(document.getElementsByName("gender"));
 
-/* Select gender */
-
-const CheckSelection = () => {
-  gender_array.forEach((el) => {
-    const avatar_container = el.parentElement;
-    if (el.checked) {
-      avatar_container.classList.add("active");
-    } else {
-      avatar_container.classList.remove("active");
-    }
+genderArray.forEach((option) => {
+  option.addEventListener("click", () => {
+    genderArray.forEach((gender) => {
+      if (gender.checked) {
+        gender.parentElement.classList.add("active");
+      } else {
+        gender.parentElement.classList.remove("active");
+      }
+    });
   });
-};
+});
 
-for (const el of gender_array) {
-  const gender_select = el;
-  gender_select.addEventListener("click", () => {
-    CheckSelection();
-  });
-}
+// Plus and minus btn
+const numInfoArray = Array.from(
+  document.querySelectorAll(".ipt-number-container")
+);
 
-/* Plus and minus Btn */
-
-const ipt_nums = document.getElementsByClassName("ipt-number-container");
-
-const ipt_nums_array = Array.from(ipt_nums);
-
-for (const el of ipt_nums_array) {
-  const minus_btn = el.children[0];
-  const plus_btn = el.children[2];
-  const ipt_number = el.children[1];
-  let ipt_number_value =
-    el.children[1].value === "" ? 0 : parseInt(el.children[1].value);
-
-  minus_btn.addEventListener("click", () => {
-    if (ipt_number_value >= 1) {
-      ipt_number.value = --ipt_number_value;
-    }
-  });
+numInfoArray.forEach((el) => {
+  const ipt_array = Array.from(el.children);
+  const plus_btn = ipt_array[2];
+  const minus_btn = ipt_array[0];
+  const ipt_num = ipt_array[1];
 
   plus_btn.addEventListener("click", () => {
-    ipt_number.value = ++ipt_number_value;
+    let ipt_number_value = ipt_num.value === "" ? 0 : parseInt(ipt_num.value);
+    ipt_num.value = ++ipt_number_value;
   });
+
+  minus_btn.addEventListener("click", () => {
+    let ipt_number_value = ipt_num.value === "" ? 0 : parseInt(ipt_num.value);
+    if (ipt_number_value >= 1) {
+      ipt_num.value = --ipt_number_value;
+    } else {
+      ipt_num.value = "";
+    }
+  });
+});
+
+// Calculate BMI
+function ValidateData() {
+  const radio_checked = document.querySelector("input[type='radio']:checked");
+  const age = parseInt(document.querySelector("#age-input").value);
+  const height = parseInt(document.querySelector("#height-input").value) / 100;
+  const weight = parseInt(document.querySelector("#weight-input").value);
+
+  if (radio_checked === null || isNaN(age) || isNaN(height) || isNaN(weight)) {
+    window.alert("Preencha todos os campos!");
+    return false;
+  } else {
+    const bmi = weight / (height * height);
+    return bmi;
+  }
 }
+
+const calculateBtn = document.getElementById("calculate-btn");
+
+calculateBtn.addEventListener("click", () => {
+  if (ValidateData() !== false) {
+    const bmi = ValidateData();
+    const bmi_div = document.querySelector("#bmi-result");
+    let level;
+
+    if (bmi < 18.5) {
+      level = "Underweight";
+    } else if (bmi >= 18.5 && bmi < 25) {
+      level = "Normal";
+    } else if (bmi >= 25 && bmi < 29.9) {
+      level = "Overweight";
+    } else if (bmi >= 30 && bmi < 34.9) {
+      level = "Obese";
+    } else {
+      level = "Extremely obese";
+    }
+
+    bmi_div.innerHTML = `
+    <h2>Your result: ${bmi.toFixed(2)}</h2>
+    <p>${level}</p>
+    `;
+  }
+});

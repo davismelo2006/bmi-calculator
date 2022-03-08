@@ -34,44 +34,55 @@ header {
   background: var(--gradient-color);
   padding: 60px;
   border-radius: 0 0 20% 20%;
-  filter: drop-shadow(0px 0px 5px #1d1d1d);
+  box-shadow: 0px 0px 5px #2c2c2c;
 }
 
 header h1 {
   text-align: center;
-  color: #f3f3f3;
+  color: #f0f0f0;
   font-weight: 300;
   letter-spacing: 2px;
   font-size: 2.5rem;
 }
 
-/* Main */
-
 main {
   margin: 35px 0;
   display: flex;
   justify-content: center;
+  gap: 35px;
 }
 
-.input-container {
+/* BMI section */
+
+.box-container {
+  width: max-content;
+}
+
+.card-container {
+  border-radius: 15px;
+  padding: 15px;
   position: relative;
   margin-bottom: 25px;
+
+  box-shadow: 0px 0px 5px #2c2c2c;
 }
 
-.input-container h3 {
+.card-container > label,
+.card-container > span {
   font-size: 1.2rem;
   margin-bottom: 7px;
 }
 
 input[type="number"] {
   font-size: 1rem;
-  padding-bottom: 5px;
   text-align: center;
   outline: none;
   background: none;
-  border: 3px solid #7a7a7a7e;
-  border-left: none;
-  border-right: none;
+  border: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 #gender-container,
@@ -82,53 +93,42 @@ input[type="number"] {
 
 /* Plus and minuns button */
 
-.btn-ipt-plus,
-.btn-ipt-minus {
+.btn-ipt-num {
   padding: 5px 12px;
   font-weight: 700;
   font-size: 1.3rem;
   border: none;
   cursor: pointer;
   color: #0057fa;
-  border: 3px solid #7a7a7a7e;
-}
-
-.btn-ipt-plus {
-  border-left: none;
-  border-radius: 0 10px 10px 0;
-}
-.btn-ipt-minus {
-  border-right: none;
-  border-radius: 10px 0 0 10px;
 }
 
 /* Gender*/
 
 .avatar-container {
-  display: inline-block;
   position: relative;
-  box-shadow: 0px 0px 5px black;
+  border: 2px solid #909090b9;
   border-radius: 15px;
   transition: 0.35s ease;
-}
-
-.avatar-container.active {
-  background-color: var(--main-color);
-}
-
-.avatar-container.active p {
-  color: #f0f0f0;
-}
-
-.avatar-container.active svg {
-  fill: #f0f0f0;
 }
 
 .gender-select {
   display: grid;
   justify-items: center;
   width: 80px;
-  padding: 8px 10px;
+  padding: 10px;
+}
+
+.avatar-container.active {
+  border: 2px solid var(--main-color);
+  background-color: var(--main-color);
+}
+
+.avatar-container.active label {
+  color: #f0f0f0;
+}
+
+.avatar-container.active svg {
+  fill: #f0f0f0;
 }
 
 .gender-select svg {
@@ -147,7 +147,7 @@ input[type="number"] {
 
 /* Button */
 
-#bmi-form button {
+#calculate-btn {
   width: 100%;
   padding: 15px;
   font-weight: 700;
@@ -155,12 +155,29 @@ input[type="number"] {
   cursor: pointer;
   border-radius: 25px;
   letter-spacing: 1.2px;
-  border: 2px solid var(--main-color-dark);
+  border: 2px solid #2e2e2e;
   cursor: pointer;
   transition: 0.35s ease-out;
 }
 
-#bmi-form button:hover {
+#calculate-btn:hover,
+#calculate-btn:focus-within {
   background: var(--gradient-color);
   color: #f0f0f0;
+}
+
+/* Result section */
+
+#info-list {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .box-container {
+    margin: 0 auto;
+  }
 }
