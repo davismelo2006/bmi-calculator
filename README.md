@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-This is BMI Calculator. You can calculate your BMI using this application.
+ Calculadora de IMC responsiva.
 </p>
 
 <p align="center"> 
@@ -13,6 +13,5 @@ This is BMI Calculator. You can calculate your BMI using this application.
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
 </p>
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/97414784/158029685-2177dcfa-5b91-4b05-a0bc-a2fd9be456d2.jpg" height="400px"/>
-</p>
+<img src="https://user-images.githubusercontent.com/97414784/164072807-d3f91b36-134e-4e2b-960d-8849cf99aeae.png" />
+<img src="https://user-images.githubusercontent.com/97414784/164072858-90bdbe71-3aa1-4fdf-a30a-7647c7e271af.png" width="250px"/>
